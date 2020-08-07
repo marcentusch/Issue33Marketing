@@ -1,6 +1,7 @@
 // Filters
 const dateFilter = require("./src/filters/date-filter.js");
 const w3DateFilter = require("./src/filters/w3-date-filter.js");
+const rssPlugin = require("@11ty/eleventy-plugin-rss");
 
 const sortByDisplayOrder = require("./src/utils/sort-by-display-order.js");
 
@@ -11,6 +12,9 @@ module.exports = (config) => {
 
   // Here we can specify folders and files that needs to be added to our output folder
   config.addPassthroughCopy("./src/images/");
+
+  // Plugins
+  config.addPlugin(rssPlugin);
 
   // Returns a collection of blog posts in reverse date order
   config.addCollection("blog", (collection) => {
@@ -35,6 +39,9 @@ module.exports = (config) => {
       return Number(a.fileSlug) > Number(b.fileSlug) ? 1 : -1;
     });
   });
+
+  // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
+  config.setUseGitIgnore(false);
 
   return {
     // Setting the template engine to nunjucks. Now .html files can use nunjucks
