@@ -80,6 +80,7 @@ h4 {
 @import "blocks/skip-link";
 @import "blocks/cta";
 @import "blocks/page-header";
+@import "blocks/gallery";
 
 // Import utilities
 @import "utilities/dot-shadow";
@@ -92,3 +93,5 @@ h4 {
 @import "utilities/wrapper";
 @import "utilities/headline";
 @import "utilities/auto-grid";
+@import "blocks/people";
+@import "blocks/person";
